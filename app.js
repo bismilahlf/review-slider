@@ -60,6 +60,11 @@ function showPerson() {
   info.textContent = item.text;
 }
 
+// Generate random number
+function getRandomNumber() {
+  return Math.floor(Math.random() * reviews.length);
+}
+
 // Load initial item
 window.addEventListener("DOMContentLoaded", showPerson);
 
@@ -75,10 +80,14 @@ nextBtn.addEventListener("click", () => {
 // Show prev person
 prevBtn.addEventListener("click", () => {
   currentItem--;
-  console.log(currentItem);
   if(currentItem < 0) {
     currentItem = reviews.length - 1;
   }
   showPerson();
 });
 
+// Show random person
+randomBtn.addEventListener("click", () => {
+  currentItem = getRandomNumber();
+  showPerson();
+});
